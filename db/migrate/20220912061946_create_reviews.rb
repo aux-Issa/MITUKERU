@@ -16,7 +16,6 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :age, null: false
       t.integer :assessment_price, null: false
       t.integer :sale_price, null: false
-      t.boolean :discounted
       t.integer :required_months_after_discount
       t.integer :discount_price
       t.integer :contract_price, null: false
