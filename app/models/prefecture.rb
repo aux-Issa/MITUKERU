@@ -1,3 +1,3 @@
 class Prefecture < ApplicationRecord
-  has_many :cities, dependent: :restrict_with_error
+  has_many :cities
 end
