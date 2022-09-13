@@ -1,0 +1,28 @@
+ja:
+  enums:
+    review:
+      type_of_property:
+        apartment: マンション
+        house: 戸建て
+        land: 土地
+      gender:
+        male: 男性
+        female: 女性
+        other: その他・不明
+      reason_for_sales:
+        relocation: 住み替え
+        inheritance: 相続
+        job_change: 転勤、転職
+        divorce: 離婚
+        asset_liquidation: 資産整理
+        financial_reason: 金銭的な理由
+        other_reason: その他
+      contract_category:
+        privileged_and_exclusive_brokerage_service_agreement: 専属専任媒介契約
+        exclusive_brokerage_service_agreement: 専任媒介契約
+        non_exclusive_brokerage_service_agreement: 一般媒介契約
+        unknown: わからない
+      times_of_sales:
+        first_time: 初めて
+        second_time: 2回目
+        more_than_two_times: 3回以上
