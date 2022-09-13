@@ -1,11 +1,11 @@
 <li id="review-<%= review.id %>">
   <% city = City.find(review.city_id) %>
-  <span class="title"><%= review.title%></span>
-  <span class="response_satisfaction"><%=  review.response_satisfaction %></span>
-  <span class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></span>
-  <span class="assessment_price"><%= review.assessment_price%></span>
-  <span class="contract_price"><%= review.contract_price %></span>
-  <span class="prefecture"> <%= city.prefecture.name %> </span>
-  <span class="city"><%= city.name %></span>
-  <span class="sold_out_date"><%= review.sold_out_date %></span>
+  <p class="title"><%= review.title%></p>
+  <p class="response_satisfaction"><%=  review.response_satisfaction %></p>
+  <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
+  <p class="assessment_price"><%= review.assessment_price%></p>
+  <p class="contract_price"><%= review.contract_price %></p>
+  <p class="prefecture"> <%= city.prefecture.name %> </p>
+  <p class="city"><%= city.name %></p>
+  <p class="sold_out_date"><%= review.sold_out_date %></p>
 </li>

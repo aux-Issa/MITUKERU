@@ -3,19 +3,19 @@
 <%= @shop.name %>
 </h1>
 
-<h2>
+<p>
 キャッチコピー：
 <%= @shop.catch_copy %>
-</h2>
+</p>
 
-<h2>
+<p>
 紹介文：
 <%= @shop.introduction %>
-</h2>
+</p>
 
 <% if @shop.reviews.any? %>
 <h3> Reviews </h3>
-<ol class="reviews">
+<ul class="reviews">
   <%= render @reviews%>
-</ol>
+</ul>
 <% end %>
