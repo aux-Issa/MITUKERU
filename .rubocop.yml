@@ -29,3 +29,8 @@ Metrics/BlockLength:
 
 Rails/BulkChangeTable:
   Enabled: false
+
+# dependantオプションは必要になったタイミングで作成するので、現時点で引っかからないようにする
+# https://github.com/speee/hr-eng-internship-2022-2nd-team-2/pull/16#discussion_r969114220
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
