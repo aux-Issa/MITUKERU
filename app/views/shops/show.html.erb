@@ -11,3 +11,29 @@
     <%= render @reviews %>
   </ul>
 <% end %>
+
+<div>
+<h2>
+<%= @shop.company.name %>
+について</h2>
+<div>
+<div>
+<p>企業名: <%= @shop.company.name %> </p>
+<p>郵便番号: <%= @shop.postal_code %> </p>
+<p>住所: <%= @shop.city.prefecture.name %> <%= @shop.city.name %> <%= @shop.remaining_address %> </p>
+<% if @shop.telephone_no.present? %>
+  <p>電話番号: <%= @shop.telephone_no %> </p>
+<% end %>
+<% if @shop.fax_no.present? %>
+  <p>電話番号: <%= @shop.fax_no %> </p>
+<% end %>
+<% if @shop.opening_hour.present? %>
+  <p>営業時間: <%= @shop.opening_hour %> </p>
+<% end %>
+<% if @shop.holiday.present? %>
+  <p>定休日: <%= @shop.holiday %> </p>
+<% end %>
+</div>
+</div>
+<%= image_tag @shop.logo_url, size: '320x240' %>
+</div>
