@@ -11,7 +11,7 @@ class Review < ApplicationRecord
                             other_reason: 99
                           }
   enum contract_category: { 
-                            privilegedand_exclusive_brokerage_service_agreement: 1, 
+                            privileged_and_exclusive_brokerage_service_agreement: 1, 
                             exclusive_brokerage_service_agreement: 2 , 
                             non_exclusive_brokerage_service_agreement: 3, 
                             unknown: 4
