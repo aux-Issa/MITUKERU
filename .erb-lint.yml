@@ -1,0 +1,7 @@
+---
+glob: "**/*.{html,text,js}{+*,}.erb"
+exclude:
+  - "**/vendor/**/*"
+linters:
+  SelfClosingTag:
+    enabled: false
