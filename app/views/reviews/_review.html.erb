@@ -1,7 +1,7 @@
 <li id="review-<%= review.id %>">
   <% city = City.find(review.city_id) %>
-  <p class="title"><%= review.title%></p>
-  <p class="response_satisfaction"><%=  review.response_satisfaction %></p>
+  <p class="title"><%= review.title %></p>
+  <p class="response_satisfaction"><%= review.response_satisfaction %></p>
   <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
   <p class="assessment_price"><%= review.assessment_price %></p>
   <p class="contract_price"><%= review.contract_price %></p>
