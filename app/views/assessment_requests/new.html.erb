@@ -1,6 +1,6 @@
 <h1>査定依頼フォーム</h1>
 
-<%= form_with(model: @assessment_request, local: true, method: 'POST') do |f| %>
+<%= form_with(model: @assessment_request_form, local: true) do |f| %>
   <%= f.label :property_city %>
   <%= f.text_field :property_city %>
 
