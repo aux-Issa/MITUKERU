@@ -29,6 +29,14 @@ docker-compose run --rm app bin/rails test
 docker-compose run --rm app bundle exec rubocop
 ```
 
+Autocorrectableミスがある場合、下記のコマンドを実行すべき！
+docker-compose run --rm app bundle exec rubocop -A
+
+## erb-lint の実行
+```bash
+docker-compose run --rm app bundle exec erblint --lint-all -a
+```
+
 ## サーバへのデプロイ
 
 0. (初回のみ) `aws ecs run-task --cluster internship-sep2022-2 --task-definition internship-sep2022-2-db-create --launch-type FARGATE --network-configuration '{"awsvpcConfiguration":{"subnets":["subnet-0334f01a7f2e84910","subnet-06e60f8f517606654","subnet-0df45f1bdece2446d"],"securityGroups": ["sg-0d5c892c6adf48f05"],"assignPublicIp":"ENABLED"}}' --count 1` で `rails db:create` を本番環境のDBに適用し、この Rails アプリが使用する MySQL のデータベースを作成する。

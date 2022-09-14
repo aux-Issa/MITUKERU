@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
     t.bigint "city_id"
     t.bigint "ieul_shop_id", null: false
     t.string "postal_code"
-    t.string "name"
+    t.string "name", null: false
     t.text "catch_copy", null: false
     t.string "remaining_address", null: false
     t.string "telephone_number"
