@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
     t.integer "age", null: false
     t.integer "assessment_price", null: false
     t.integer "sale_price", null: false
-    t.boolean "discounted"
     t.integer "required_months_after_discount"
     t.integer "discount_price"
     t.integer "contract_price", null: false
@@ -83,8 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
     t.string "name"
     t.text "catch_copy", null: false
     t.string "remaining_address", null: false
-    t.string "telephone_no"
-    t.string "fax_no"
+    t.string "telephone_number"
+    t.string "fax_number"
     t.string "opening_hour"
     t.string "holiday"
     t.text "introduction", null: false
