@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/assessment_request', to: 'assessment_requests#new'
-  post '/assessment_request', to: 'assessment_requests#create'
+  get '/assessment_requests', to: 'assessment_requests#new'
+  post '/assessment_requests', to: 'assessment_requests#create'
   resources :shops, only: [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
