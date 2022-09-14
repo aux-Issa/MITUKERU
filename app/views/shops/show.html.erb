@@ -1,0 +1,13 @@
+<h1><%= @shop.company.name %> <%= @shop.name %></h1>
+
+<p>キャッチコピー： <%= @shop.catch_copy %></p>
+
+<p>紹介文： <%= @shop.introduction %></p>
+
+<% if @shop.reviews.any? %>
+  <h3>Reviews</h3>
+  <p><%= @shop.reviews.average :response_satisfaction %></p>
+  <ul class="reviews">
+    <%= render @reviews %>
+  </ul>
+<% end %>
