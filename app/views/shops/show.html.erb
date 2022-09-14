@@ -6,6 +6,7 @@
 
 <% if @shop.reviews.any? %>
   <h3>Reviews</h3>
+  <p><%= @shop.reviews.average :response_satisfaction %></p>
   <ul class="reviews">
     <%= render @reviews %>
   </ul>
