@@ -49,6 +49,7 @@ gem 'rubocop-rails', require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+gem 'rails-i18n', '~> 7.0', '>= 7.0.5'
 gem 'enum_help'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -63,6 +64,28 @@ group :development do
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
