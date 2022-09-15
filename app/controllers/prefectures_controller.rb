@@ -6,6 +6,6 @@ class PrefecturesController < ApplicationController
     cities = City.where(prefecture_id:)
 
     @prefecture_name = Prefecture.find_by(id: prefecture_id)&.name
-    @shops = cities.map(&:shops).flatten
+    @shops = cities.map(&:shops).flatten.uniq
   end
 end
