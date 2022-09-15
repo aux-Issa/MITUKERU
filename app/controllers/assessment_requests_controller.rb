@@ -1,23 +1,21 @@
 class AssessmentRequestsController< ApplicationController
 
     def new
-      @assessment_request_form= AssessmentRequestForm.new
-      debugger
+      @assessment_request= AssessmentRequest.new
     end
   
     def create
-      @assessment_request_form= AssessmentRequestForm.create(assessment_request_params)
-      debugger
-      if @assessment_request_form.save
-        render html: "save"
+      @assessment_request= AssessmentRequest.new(assessment_request_params)
+      if @assessment_request.valid?
+        redirect_to render html: "save"
       else
-        render html: "save failed"
+        redirect_to render html: "save failed"
       end
     end
   
     private
     def assessment_request_params
-      params.require(:assessment_request_form).permit(
+      params.require(:assessment_request).permit(
           # :branch_id, 
           :property_city, 
           :property_address, 
