@@ -1,7 +1,7 @@
-class AssessmentRequestForm
+class AssessmentRequest
     include ActiveModel::Model # 通常のモデルのようにvalidationなどを使えるようにする
     include ActiveModel::Attributes # ActiveRecordのカラムのような属性を加えられるようにする
-  
+
     attribute :branch_id, :integer # 
     attribute :property_city, :integer
     attribute :property_address, :string
@@ -19,7 +19,11 @@ class AssessmentRequestForm
     attribute :user_name_kana
     attribute :user_tel
 
+    validates :property_city, presence: true # DBに存在するidかどうか
+    validates :property_address, presence: true, length: {maximum: 50}
+
+
     def save
-      true
+      valid?
     end
   end
