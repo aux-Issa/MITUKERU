@@ -1,6 +1,10 @@
-<%= shop.name %>
-<%= "★ #{shop.reviews.average :response_satisfaction}" %>
-<%= shop.opening_hour %>
-<%= shop.holiday %>
-<%= "#{shop.city.prefecture.name}#{shop.city.name}#{shop.remaining_address}" %>
-<%= shop.reviews.last.reason_for_selection %>
+<%= link_to shop_path shop.id do %>
+  <p>
+    <%= shop.company.name %>
+    <%= "★ #{shop.reviews.average :response_satisfaction}" %>
+    <%= shop.opening_hour %>
+    <%= shop.holiday %>
+    <%= "#{shop.city.prefecture.name}#{shop.city.name}#{shop.remaining_address}" %>
+    <%= shop.reviews.last.reason_for_selection %>
+  </p>
+<% end %>
