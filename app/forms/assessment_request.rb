@@ -21,8 +21,19 @@ class AssessmentRequest
 
     validates :property_city, presence: true # DBに存在するidかどうか
     validates :property_address, presence: true, length: {maximum: 50}
+    validates :property_type, inclusion: {in: [1, 2, 3]}
+    validates :property_exclusive_area, presence: true
+    validates :property_land_area, presence: true
+    validates :property_building_area, presence: true
+    validates :property_building_area_unit, inclusion: {in: [1, 2]}
+    validates :property_floor_area, presence: true
+    validates :property_room_plan, inclusion: {in: (1..13).to_a}
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :user_email, presence: true, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }
+    VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+ [ぁ-んァ-ヴ一-龠a-zA-Z]+/u
+    validates :user_name, presence: true, format: { with: VALID_NAME_REGEX}
+    validates :user_name_kana, presence: true, format: { with: VALID_NAME_REGEX}
+    VALID_TELEPHONE_NUMBER = /0\d{9,10}/
+    validates :user_tel, presence: true, format: { with: VALID_NAME_REGEX}
 
-    def save
-      valid?
-    end
   end

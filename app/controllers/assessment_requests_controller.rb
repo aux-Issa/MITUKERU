@@ -1,5 +1,8 @@
 class AssessmentRequestsController< ApplicationController
 
+    def thx
+    end
+
     def new
       @assessment_request= AssessmentRequest.new
       @shop = Shop.find(params[:shop_id])
@@ -8,9 +11,10 @@ class AssessmentRequestsController< ApplicationController
     def create
       @assessment_request= AssessmentRequest.new(assessment_request_params)
       if @assessment_request.valid?
-        render html: "valid"
+        redirect_to assessment_requests_success_path
       else
-        redirect_to "https://www.google.com/?hl=ja"
+        @shop = Shop.find(params[:shop_id])
+        render 'new'
       end
     end
   
