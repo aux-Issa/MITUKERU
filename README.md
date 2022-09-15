@@ -29,6 +29,9 @@ docker-compose run --rm app bin/rails test
 docker-compose run --rm app bundle exec rubocop
 ```
 
+Autocorrectableミスがある場合、下記のコマンドを実行すべき！
+docker-compose run --rm app bundle exec rubocop -A
+
 ## erb-lint の実行
 ```bash
 docker-compose run --rm app bundle exec erblint --lint-all -a

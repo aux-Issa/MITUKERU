@@ -1,11 +1,14 @@
-<li id="review-<%= review.id %>">
+<li class="container border border-2 p-3" id="review-<%= review.id %>">
   <% city = City.find(review.city_id) %>
-  <p class="title"><%= review.title %></p>
-  <p class="response_satisfaction"><%= review.response_satisfaction %></p>
+  <p class="fw-bold"><%= review.title %>: ★<%= review.response_satisfaction %></p>
   <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
-  <p class="assessment_price"><%= review.assessment_price %></p>
-  <p class="contract_price"><%= review.contract_price %></p>
-  <p class="prefecture"> <%= city.prefecture.name %> </p>
-  <p class="city"><%= city.name %></p>
-  <p class="sold_out_date"><%= review.sold_out_date %></p>
+  <div class="d-flex gap-3 justify-content-end">
+    <p> 査定価額：<%= review.assessment_price/10000 %>万円 </p>
+    <p> 成約価額：<%= review.contract_price/10000 %>万円 </p>
+    <div class="d-flex">
+      <p> <%= city.prefecture.name %> </p>
+      <p><%= city.name %></p>
+      <p class="ms-3"><%= review.sold_out_date.strftime('%Y年%m月') %>に売却</p>
+    </div>
+  </div>
 </li>

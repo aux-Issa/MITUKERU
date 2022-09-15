@@ -1,39 +1,47 @@
-<h1><%= @shop.company.name %> <%= @shop.name %></h1>
+<header class="text-center mt-3 container">
+  <h1><%= @shop.company.name %> <%= @shop.name %></h1>
+</header>
 
-<p>キャッチコピー： <%= @shop.catch_copy %></p>
+<section class="mt-3 container">
+  <p class="fs-4"><%= @shop.catch_copy %></p>
+  <p><%= @shop.introduction %></p>
+</section>
 
-<p>紹介文： <%= @shop.introduction %></p>
+<section class="mt-3 container">
+  <% if @shop.reviews.any? %>
+    <div class="d-flex align-items-center">
+      <h3 class="fs-5 fw-bold"><%= @shop.company.name %> <%= @shop.name %>で売却した人の不動産会社についての口コミ(平均評価★<%= @shop.reviews.average :response_satisfaction %> )</h3>
+    </div>
+    <ul class="mt-3">
+      <%= render @reviews %>
+    </ul>
+  <% end %>
+</section>
 
-<% if @shop.reviews.any? %>
-  <h3>Reviews</h3>
-  <p><%= @shop.reviews.average :response_satisfaction %></p>
-  <ul class="reviews">
-    <%= render @reviews %>
-  </ul>
-<% end %>
+<section class="container mt-4">
+  <h2 class="fs-5 fw-bold"><%= @shop.company.name %>について</h2>
+  <div class="d-flex justify-content-between gap-3">
+    <div>
+      <p class="mb-0">企業名: <%= @shop.company.name %> </p>
+      <p class="mb-0">郵便番号: <%= @shop.postal_code %> </p>
+      <p class="mb-0">住所: <%= @shop.city.prefecture.name %> <%= @shop.city.name %> <%= @shop.remaining_address %> </p>
+      <% if @shop.telephone_number.present? %>
+        <p class="mb-0">電話番号: <%= @shop.telephone_number %> </p>
+      <% end %>
+      <% if @shop.fax_number.present? %>
+        <p class="mb-0">電話番号: <%= @shop.fax_number %> </p>
+      <% end %>
+      <% if @shop.opening_hour.present? %>
+        <p class="mb-0">営業時間: <%= @shop.opening_hour %> </p>
+      <% end %>
+      <% if @shop.holiday.present? %>
+        <p>定休日: <%= @shop.holiday %> </p>
+      <% end %>
+    </div>
+    <%= image_tag @shop.logo_url, size: "250x200" %>
+  </div>
+</section>
 
-<div>
-<h2>
-<%= @shop.company.name %>
-について</h2>
-<div>
-<div>
-<p>企業名: <%= @shop.company.name %> </p>
-<p>郵便番号: <%= @shop.postal_code %> </p>
-<p>住所: <%= @shop.city.prefecture.name %> <%= @shop.city.name %> <%= @shop.remaining_address %> </p>
-<% if @shop.telephone_number.present? %>
-  <p>電話番号: <%= @shop.telephone_number %> </p>
-<% end %>
-<% if @shop.fax_number.present? %>
-  <p>電話番号: <%= @shop.fax_number %> </p>
-<% end %>
-<% if @shop.opening_hour.present? %>
-  <p>営業時間: <%= @shop.opening_hour %> </p>
-<% end %>
-<% if @shop.holiday.present? %>
-  <p>定休日: <%= @shop.holiday %> </p>
-<% end %>
-</div>
-</div>
-<%= image_tag @shop.logo_url, size: '320x240' %>
+<div class="text-center mt-4">
+  <button class="btn btn-secondary">査定依頼をする</button>
 </div>
