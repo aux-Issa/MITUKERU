@@ -8,7 +8,7 @@ class CreateShops < ActiveRecord::Migration[7.0]
 
       t.bigint :ieul_shop_id, null: false
       t.string :postal_code
-      t.string :name, null: false
+      t.string :name
       t.text :catch_copy, null: false
       t.string :remaining_address, null: false
       t.string :telephone_number
