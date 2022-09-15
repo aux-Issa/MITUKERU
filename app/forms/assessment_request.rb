@@ -22,7 +22,6 @@ class AssessmentRequest
     validates :property_city, presence: true # DBに存在するidかどうか
     validates :property_address, presence: true, length: {maximum: 50}
 
-
     def save
       valid?
     end
