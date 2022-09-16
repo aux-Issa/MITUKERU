@@ -1,4 +1,4 @@
-<li class="container border border-2 p-3" id="review-<%= review.id %>">
+<li class="mb-4 border border-2 p-3" id="review-<%= review.id %>">
   <% city = City.find(review.city_id) %>
   <p class="fw-bold"><%= review.title %>: ★<%= review.response_satisfaction %></p>
   <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
