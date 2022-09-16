@@ -5,7 +5,7 @@
   <%= render 'shared/error_messages' %>
 
   <%= f.label :property_city %>
-  <%= f.select :property_city, @shop.assessable_areas.map { |assessable_area| [City.find(assessable_area.city_id).name, assessable_area.city_id]} %>
+  <%= f.select :property_city, @shop.assessable_areas.map { |assessable_area| [City.find(assessable_area.city_id).prefecture.name + City.find(assessable_area.city_id).name, assessable_area.city_id]} %>
 
   <%= f.label :property_address %>
   <%= f.text_field :property_address %>
