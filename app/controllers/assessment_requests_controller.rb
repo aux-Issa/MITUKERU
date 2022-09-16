@@ -16,10 +16,9 @@ class AssessmentRequestsController< ApplicationController
 
         response = post_assessment_request(@assessment_request)
         logger.debug(response)
-        byebug
+       
         redirect_to assessment_requests_success_path
       else
-        flash[:error_messages] = @assessment_request.errors.full_messages
         render 'new', status: :unprocessable_entity
       end
     end
