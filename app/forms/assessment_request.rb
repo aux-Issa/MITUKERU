@@ -47,8 +47,8 @@ class AssessmentRequest
     # TODO: データベースに無駄にアクセス
     choices = []
     shop.assessable_areas.map do |assessable_area|
-  choices.push([City.find(assessable_area.city_id).prefecture.name + City.find(assessable_area.city_id).name,
-                assessable_area.city_id])
+      choices.push([City.find(assessable_area.city_id).prefecture.name + City.find(assessable_area.city_id).name,
+                    assessable_area.city_id])
     end
     choices
   end
