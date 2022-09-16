@@ -5,13 +5,13 @@
   <%= render 'shared/error_messages' %>
 
   <%= f.label :property_city %>
-  <%= f.select :property_city, @assessment_request.property_city_choices(@shop) %>
+  <%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { include_blank: true }%>
 
   <%= f.label :property_address %>
   <%= f.text_field :property_address %>
   
   <%= f.label :property_type %>
-  <%= f.select :property_type, @assessment_request.property_type_choices %>
+  <%= f.select :property_type, @assessment_request.property_type_choices , { include_blank: true }%>
   
   <%= f.label :property_exclusive_area %>
   <%= f.text_field :property_exclusive_area %>
@@ -23,13 +23,13 @@
   <%= f.text_field :property_building_area %>
 
   <%= f.label :property_building_area_unit %>
-  <%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices %>
+  <%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices, { include_blank: true }%>
   
   <%= f.label :property_floor_area %>
   <%= f.text_field :property_floor_area %>
 
   <%= f.label :property_room_plan %>
-  <%= f.select :property_room_plan, @assessment_request.property_room_plan_choices %>
+  <%= f.select :property_room_plan, @assessment_request.property_room_plan_choices , { include_blank: true }%>
 
   <%= f.label :property_constructed_year %>
   <%= f.text_field :property_constructed_year %>
