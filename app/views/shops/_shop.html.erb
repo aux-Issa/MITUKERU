@@ -1,6 +1,6 @@
 <%= link_to shop_path shop.id do %>
   <p>
-    <%= shop.company.name %>
+    <%= "#{shop.company.name} #{shop.name}" %>
     <%= "★ #{shop.reviews.average :response_satisfaction}" %>
     <%= shop.opening_hour %>
     <%= shop.holiday %>
