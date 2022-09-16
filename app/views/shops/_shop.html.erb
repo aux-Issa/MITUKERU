@@ -1,10 +1,16 @@
-<%= link_to shop_path shop.id do %>
-  <p>
-    <%= "#{shop.company.name} #{shop.name}" %>
-    <%= "★ #{shop.reviews.average :response_satisfaction}" %>
-    <%= shop.opening_hour %>
-    <%= shop.holiday %>
-    <%= "#{shop.city.prefecture.name}#{shop.city.name}#{shop.remaining_address}" %>
-    <%= shop.reviews.last.reason_for_selection %>
-  </p>
-<% end %>
+<div class="text-dark border border-2 p-3 mb-4">
+  <%= link_to(shop_path(shop.id), class: 'text-decoration-none') do %>
+    <div class="d-flex text-dark">
+      <div class="me-3">
+        <h2 class="fs-6 mb-0" style="margin-top: 3px"> <%= "#{shop.company.name} #{shop.name}" %> </h2>
+        <%= "★ #{shop.reviews.average :response_satisfaction}" %>
+      </div>
+      <div>
+        <p class="mb-0">営業時間：<%= shop.opening_hour %></p>
+        <p class="mb-0">定休日：<%= shop.holiday %></p>
+        <p class="mb-0">住所：<%= shop.city.prefecture.name %> <%= shop.city.name %> <%= shop.remaining_address %></p>
+      </div>
+    </div>
+    <p class="text-dark mt-3">会社の決め手： <br/> <%= shop.reviews.last.reason_for_selection %></p>
+  <% end %>
+</div>
