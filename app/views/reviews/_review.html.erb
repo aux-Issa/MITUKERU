@@ -1,3 +1,4 @@
+<%# TODO: link_toの青色、下線を消す %>
 <%= link_to review_path review.id do %>
   <li class="mb-4 border border-2 p-3" id="review-<%= review.id %>">
     <% city = City.find(review.city_id) %>
