@@ -5,13 +5,13 @@
   <%= render 'shared/error_messages' %>
 
   <%= f.label :property_city %>
-  <%= f.select :property_city, @shop.assessable_areas.map { |assessable_area| [City.find(assessable_area.city_id).prefecture.name + City.find(assessable_area.city_id).name, assessable_area.city_id]} %>
+  <%= f.select :property_city, @assessment_request.property_city_choices(@shop) %>
 
   <%= f.label :property_address %>
   <%= f.text_field :property_address %>
   
   <%= f.label :property_type %>
-  <%= f.select :property_type, Review.type_of_properties.map {|key, value| [Review.type_of_properties_i18n[key], value + 1]} %>
+  <%= f.select :property_type, @assessment_request.property_type_choices %>
   
   <%= f.label :property_exclusive_area %>
   <%= f.text_field :property_exclusive_area %>
@@ -23,14 +23,14 @@
   <%= f.text_field :property_building_area %>
 
   <%= f.label :property_building_area_unit %>
-  <%= f.select :property_building_area_unit, [['平方メートル', 1], ['坪', 2]] %>
+  <%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices %>
   
   <%= f.label :property_floor_area %>
   <%= f.text_field :property_floor_area %>
-  
+
   <%= f.label :property_room_plan %>
-  <%= f.select :property_room_plan, {'1R(ワンルーム)': 1, '1K / 1DK': 2, '1LK / 1LDK': 3, '2K / 2DK': 4, '2LK / 2LDK': 5, '3K / 3DK': 6, '3LK / 3LDK': 7, '4K / 4DK': 8, '4LK / 4LDK': 9, '5K / 5DK': 10, '5LK / 5LDK': 11, '6K / 6DK': 12, '6LK / 6LDK以上': 13} %>
-  
+  <%= f.select :property_room_plan, @assessment_request.property_room_plan_choices %>
+
   <%= f.label :property_constructed_year %>
   <%= f.text_field :property_constructed_year %>
   
