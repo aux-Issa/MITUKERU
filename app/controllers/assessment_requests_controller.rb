@@ -10,11 +10,13 @@ class AssessmentRequestsController< ApplicationController
   
     def create
       @assessment_request= AssessmentRequest.new(assessment_request_params)
+      @shop = Shop.find(@assessment_request.branch_id)
       if @assessment_request.valid?
+        # API を叩く処理
         redirect_to assessment_requests_success_path
       else
-        @shop = Shop.find(params[:shop_id])
-        render 'new'
+        flash[:error_messages] = @assessment_request.errors.full_messages
+        render 'new', status: :unprocessable_entity
       end
     end
   

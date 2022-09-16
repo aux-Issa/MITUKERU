@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/assessment_requests', to: 'assessment_requests#new'
   get '/assessment_requests/success', to: 'assessment_requests#thx'
+  get '/assessment_requests', to: 'assessment_requests#new'
   post '/assessment_requests', to: 'assessment_requests#create'
   resources :shops, only: [:show]
   resources :cities, only: [:show]
