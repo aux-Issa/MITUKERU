@@ -10,8 +10,7 @@
         <p class="mb-0">定休日：<%= shop.holiday %></p>
         <p class="mb-0">住所：<%= shop.city.prefecture.name %> <%= shop.city.name %> <%= shop.remaining_address %></p>
       </div>
-      </div>
-
-        <p class="text-dark mt-3">会社の決め手： <br/> <%= shop.reviews.last.reason_for_selection %></p>
+    </div>
+    <p class="text-dark mt-3">会社の決め手： <br/> <%= shop.reviews.last.reason_for_selection %></p>
   <% end %>
 </div>
