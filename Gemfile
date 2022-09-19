@@ -57,6 +57,8 @@ gem 'rails-i18n', '~> 7.0', '>= 7.0.5'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
 end
 
 group :development do
