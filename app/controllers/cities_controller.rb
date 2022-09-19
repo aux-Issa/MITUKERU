@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
     city_id = params[:id]
 
     @city = City.find_by(id: city_id)
-    @prefecture = @city.prefecture
+    @prefecture = @city&.prefecture
     @shops = @city&.shops
   end
 end
