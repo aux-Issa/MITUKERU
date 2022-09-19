@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
+require 'net/http'
+require 'uri'
+
 class AssessmentRequestsController < ApplicationController
   def thx; end
 
   def new
     @assessment_request = AssessmentRequest.new
+    # TODO: 存在しないshop_idを指定した時の挙動（index ページにリダイレクトなど）
     @shop = Shop.find(params[:shop_id])
   end
 
@@ -46,9 +50,6 @@ class AssessmentRequestsController < ApplicationController
   end
 
   def post_assessment_request(assessment_request)
-    require 'net/http'
-    require 'uri'
-
     uri = 'https://miniul-api.herokuapp.com/affiliate/v2/conversions'
     uri = URI.parse(uri)
     header = { 'Content-Type': 'application/json' }
