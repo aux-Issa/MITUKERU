@@ -7,7 +7,8 @@ class PrefecturesController < ApplicationController
     cities = City.where(prefecture_id:)
 
     @city = nil
-    @prefecture = Prefecture.find_by(id: prefecture_id)
+    @prefecture = Prefecture.find(prefecture_id)
+    # TODO: @prefectureが見つからなかった時の処理
     @shops = cities.map(&:shops).flatten.uniq
   end
 end
