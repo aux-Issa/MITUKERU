@@ -19,9 +19,5 @@
 </section>
 
 <%= render "shared/shop_info", has_logo: true %>
+<%= render "shared/assessment_request_button" %>
 
-<div class="text-center mt-4 mb-5">
-  <%= link_to assessment_requests_path(shop_id: @shop.id) do%>
-    <button class="btn btn-secondary">査定依頼をする</button>
-  <%end%>
-</div>
