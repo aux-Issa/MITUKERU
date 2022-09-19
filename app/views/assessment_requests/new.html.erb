@@ -1,0 +1,53 @@
+<h1>査定依頼</h1>
+<h2><%= @shop.name %></h2>
+
+<%= form_with(model: @assessment_request, local: true) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.label :property_city %>
+  <%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { include_blank: true }%>
+
+  <%= f.label :property_address %>
+  <%= f.text_field :property_address %>
+  
+  <%= f.label :property_type %>
+  <%= f.select :property_type, @assessment_request.property_type_choices , { include_blank: true }%>
+  
+  <%= f.label :property_exclusive_area %>
+  <%= f.text_field :property_exclusive_area %>
+  
+  <%= f.label :property_land_area %>
+  <%= f.text_field :property_land_area %>
+
+  <%= f.label :property_building_area %>
+  <%= f.text_field :property_building_area %>
+
+  <%= f.label :property_building_area_unit %>
+  <%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices, { include_blank: true }%>
+  
+  <%= f.label :property_floor_area %>
+  <%= f.text_field :property_floor_area %>
+
+  <%= f.label :property_room_plan %>
+  <%= f.select :property_room_plan, @assessment_request.property_room_plan_choices , { include_blank: true }%>
+
+  <%= f.label :property_constructed_year %>
+  <%= f.text_field :property_constructed_year %>
+  
+  <%= f.label :user_email %>
+  <%= f.email_field :user_email %>
+  
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+  
+  <%= f.label :user_name_kana %>
+  <%= f.text_field :user_name_kana %>
+  
+  <%= f.label :user_tel %>
+  <%= f.telephone_field :user_tel %>
+
+  <%= f.hidden_field :branch_id, :value => @shop.id %>
+  <%= f.hidden_field :url_param, :value => "mituke-ru" %>
+
+  <%= f.submit "査定を依頼する", class: "btn btn-primary" %>
+<% end %>
