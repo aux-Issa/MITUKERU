@@ -5,7 +5,8 @@ class PrefecturesController < ApplicationController
     prefecture_id = params[:id]
     cities = City.where(prefecture_id:)
 
-    @prefecture_name = Prefecture.find_by(id: prefecture_id)&.name
+    @city = nil
+    @prefecture = Prefecture.find_by(id: prefecture_id)
     @shops = cities.map(&:shops).flatten.uniq
   end
 end
