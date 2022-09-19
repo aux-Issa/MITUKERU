@@ -5,8 +5,8 @@
     <p class="fw-bold"><%= review.title %>: ★<%= review.response_satisfaction %></p>
     <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
     <div class="d-flex gap-3 justify-content-end">
-      <p> 査定価額：<%= review.assessment_price/10000 %>万円 </p>
-      <p> 成約価額：<%= review.contract_price/10000 %>万円 </p>
+      <p> 査定価格：<%= review.assessment_price/10000 %>万円 </p>
+      <p> 成約価格：<%= review.contract_price/10000 %>万円 </p>
       <div class="d-flex">
         <p> <%= city.prefecture.name %> </p>
         <p><%= city.name %></p>
