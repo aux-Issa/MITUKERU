@@ -1,0 +1,9 @@
+<%= @prefecture.name %>
+<% @prefecture.cities.each do |city| %>
+    <li><%= link_to city.name, city_path(city.id) %>
+<%end %>
+
+他の都道府県
+<% Prefecture.all.each do |prefecture| %>
+    <li><%= link_to prefecture.name, prefecture_path(prefecture.id) %>
+<%end %>

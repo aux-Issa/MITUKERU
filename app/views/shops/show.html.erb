@@ -18,32 +18,6 @@
   <% end %>
 </section>
 
-<section class="container mt-4">
-  <h2 class="fs-5 fw-bold"><%= @shop.company.name %>について</h2>
-  <div class="d-flex justify-content-between gap-3">
-    <div>
-      <p class="mb-0">企業名: <%= @shop.company.name %> </p>
-      <p class="mb-0">郵便番号: <%= @shop.postal_code %> </p>
-      <p class="mb-0">住所: <%= @shop.city.prefecture.name %> <%= @shop.city.name %> <%= @shop.remaining_address %> </p>
-      <% if @shop.telephone_number.present? %>
-        <p class="mb-0">電話番号: <%= @shop.telephone_number %> </p>
-      <% end %>
-      <% if @shop.fax_number.present? %>
-        <p class="mb-0">FAX番号: <%= @shop.fax_number %> </p>
-      <% end %>
-      <% if @shop.opening_hour.present? %>
-        <p class="mb-0">営業時間: <%= @shop.opening_hour %> </p>
-      <% end %>
-      <% if @shop.holiday.present? %>
-        <p>定休日: <%= @shop.holiday %> </p>
-      <% end %>
-    </div>
-    <%= image_tag @shop.logo_url, size: "250x200" %>
-  </div>
-</section>
+<%= render "shared/shop_info", has_logo: true %>
+<%= render "shared/assessment_request_button" %>
 
-<div class="text-center mt-4 mb-5">
-  <%= link_to assessment_requests_path(shop_id: @shop.id) do%>
-    <button class="btn btn-secondary">査定依頼をする</button>
-  <%end%>
-</div>
