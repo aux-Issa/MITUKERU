@@ -49,7 +49,8 @@
 		</tr>
 		<tr>
 			<th colspan="3">売却</th>
-			<td><%= @review.sold_out_date.strftime('%Y年%m月') %></td>
+      <% required_month = diff_month(@review.sale_date, @review.sold_out_date) %>
+			<td><%= "#{@review.sold_out_date.strftime('%Y年%m月')} #{ "(売出から#{required_month}ヶ月)" if required_month > 0}" %></td>
 			<td><%= "#{@review.contract_price/10000}万円" %></td>
 		</tr>
 		<tr>
