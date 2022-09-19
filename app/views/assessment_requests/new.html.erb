@@ -10,7 +10,7 @@
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_city %></dt>
-        <dd class="w-100"><%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { include_blank: true }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+        <dd class="w-100"><%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { prompt: "査定可能な市区町村のみ選択できます" }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
