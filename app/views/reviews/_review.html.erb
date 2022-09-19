@@ -1,17 +1,18 @@
-<%# TODO: link_toの青色、下線を消す %>
-<%= link_to review_path review.id do %>
-  <li class="mb-4 border border-2 p-3" id="review-<%= review.id %>">
-    <% city = City.find(review.city_id) %>
-    <p class="fw-bold"><%= review.title %>: ★<%= review.response_satisfaction %></p>
-    <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
-    <div class="d-flex gap-3 justify-content-end">
-      <p> 査定価格：<%= review.assessment_price/10000 %>万円 </p>
-      <p> 成約価格：<%= review.contract_price/10000 %>万円 </p>
-      <div class="d-flex">
-        <p> <%= city.prefecture.name %> </p>
-        <p><%= city.name %></p>
-        <p class="ms-3"><%= review.sold_out_date.strftime('%Y年%m月') %>に売却</p>
+<li class="text-dark border border-2 p-3 mb-4">
+  <%= link_to(review_path(review.id), class: 'text-decoration-none') do %>
+    <div class="text-dark" id="review-<%= review.id %>">
+      <% city = City.find(review.city_id) %>
+      <p class="fw-bold"><%= review.title %>: ★<%= review.response_satisfaction %></p>
+      <p class="reason_for_response_satisfaction"><%= review.reason_for_response_satisfaction %></p>
+      <div class="d-flex gap-3 justify-content-end">
+        <p> 査定価格：<%= review.assessment_price/10000 %>万円 </p>
+        <p> 成約価格：<%= review.contract_price/10000 %>万円 </p>
+        <div class="d-flex">
+          <p> <%= city.prefecture.name %> </p>
+          <p><%= city.name %></p>
+          <p class="ms-3"><%= review.sold_out_date.strftime('%Y年%m月') %>に売却</p>
+        </div>
       </div>
     </div>
-  </li>
-<% end %>
+  <% end %>
+</li>

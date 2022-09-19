@@ -1,53 +1,90 @@
-<h1>査定依頼</h1>
-<h2><%= @shop.name %></h2>
+<header class="text-center mt-3 container">
+  <h1>査定依頼</h1>
+  <h2 class="fs-4"><%= "#{@shop.company.name} #{@shop.name}"  %></h2>
+</header>
 
-<%= form_with(model: @assessment_request, local: true) do |f| %>
-  <%= render 'shared/error_messages' %>
+<section class="d-flex justify-content-center">
+  <div class="text-center" style="width: 1000px">
+    <%= form_with(model: @assessment_request, local: true, class:"container mt-5") do |f| %>
+      <%= render 'shared/error_messages' %>
 
-  <%= f.label :property_city %>
-  <%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { include_blank: true }%>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_city %></dt>
+        <dd class="w-100"><%= f.select :property_city, @assessment_request.property_city_choices(@shop) , { prompt: "査定可能な市区町村のみ選択できます" }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+      </div>
 
-  <%= f.label :property_address %>
-  <%= f.text_field :property_address %>
-  
-  <%= f.label :property_type %>
-  <%= f.select :property_type, @assessment_request.property_type_choices , { include_blank: true }%>
-  
-  <%= f.label :property_exclusive_area %>
-  <%= f.text_field :property_exclusive_area %>
-  
-  <%= f.label :property_land_area %>
-  <%= f.text_field :property_land_area %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_address %></dt>
+        <dd class="w-100"><%= f.text_field :property_address, class:"ps-3 border border-secondary" %></dd>
+      </div>
 
-  <%= f.label :property_building_area %>
-  <%= f.text_field :property_building_area %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_type %></dt>
+        <dd class="w-100"><%= f.select :property_type, @assessment_request.property_type_choices, { include_blank: true }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+      </div>
 
-  <%= f.label :property_building_area_unit %>
-  <%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices, { include_blank: true }%>
-  
-  <%= f.label :property_floor_area %>
-  <%= f.text_field :property_floor_area %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_exclusive_area %></dt>
+        <dd class="w-100"><%= f.text_field :property_exclusive_area, class:"ps-3 border border-secondary" %></dd>
+      </div>
 
-  <%= f.label :property_room_plan %>
-  <%= f.select :property_room_plan, @assessment_request.property_room_plan_choices , { include_blank: true }%>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_land_area %></dt>
+        <dd class="w-100"><%= f.text_field :property_land_area, class:"ps-3 border border-secondary" %></dd>
+      </div>
 
-  <%= f.label :property_constructed_year %>
-  <%= f.text_field :property_constructed_year %>
-  
-  <%= f.label :user_email %>
-  <%= f.email_field :user_email %>
-  
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-  
-  <%= f.label :user_name_kana %>
-  <%= f.text_field :user_name_kana %>
-  
-  <%= f.label :user_tel %>
-  <%= f.telephone_field :user_tel %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_building_area %></dt>
+        <dd class="w-100"><%= f.text_field :property_building_area, class:"ps-3 border border-secondary" %></dd>
+      </div>
 
-  <%= f.hidden_field :branch_id, :value => @shop.id %>
-  <%= f.hidden_field :url_param, :value => "mituke-ru" %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_building_area_unit %></dt>
+        <dd class="w-100"><%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices, { include_blank: true }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+      </div>
 
-  <%= f.submit "査定を依頼する", class: "btn btn-primary" %>
-<% end %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_floor_area %></dt>
+        <dd class="w-100"><%= f.text_field :property_floor_area, class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_room_plan %></dt>
+        <dd class="w-100"><%= f.select :property_room_plan, @assessment_request.property_room_plan_choices, { include_blank: true }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_constructed_year %></dt>
+        <dd class="w-100"><%= f.text_field :property_constructed_year, class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_email %></dt>
+        <dd class="w-100"><%= f.email_field :user_email, class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_name %></dt>
+        <dd class="w-100"><%= f.text_field :user_name, placeholder: "姓と名の間に半角スペースを入れて下さい", class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_name_kana %></dt>
+        <dd class="w-100"><%= f.text_field :user_name_kana, placeholder: "姓と名の間に半角スペースを入れて下さい", class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_tel %></dt>
+        <dd class="w-100"><%= f.telephone_field :user_tel, class:"ps-3 py-2 w-100 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.hidden_field :branch_id, :value => @shop.id %></dt>
+        <dd class="w-100"><%= f.hidden_field :url_param, :value => "mituke-ru" %></dd>
+      </div>
+
+      <div class="text-center mb-4"><%= f.submit "査定を依頼する", class: "btn btn-secondary" %></div>
+
+    <% end %>
+  </div>
+</section>
