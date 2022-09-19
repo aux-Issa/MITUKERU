@@ -44,13 +44,10 @@ class AssessmentRequest
   validates :user_tel, format: { with: VALID_TELEPHONE_NUMBER }, allow_blank: true
 
   def property_city_choices(shop)
-    # TODO: データベースに無駄にアクセス
-    choices = []
     shop.assessable_areas.map do |assessable_area|
-      choices.push([City.find(assessable_area.city_id).prefecture.name + City.find(assessable_area.city_id).name,
-                    assessable_area.city_id])
+      city = City.find(assessable_area.city_id)
+      [city.prefecture.name + city.name, assessable_area.city_id]
     end
-    choices
   end
 
   def property_type_choices
