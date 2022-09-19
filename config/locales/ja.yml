@@ -26,3 +26,21 @@ ja:
         first_time: 初めて
         second_time: 2回目
         more_than_two_times: 3回以上
+  activemodel:
+    attributes:
+        assessment_request:
+            property_city: 市区町村
+            property_address: 査定依頼する物件の住所
+            property_type: 物件種別
+            property_exclusive_area: 専有面積
+            property_land_area: 土地面積
+            property_building_area: 建物面積
+            property_building_area_unit: 建物面積の単位
+            property_floor_area: 延床面積
+            property_room_plan: 間取り
+            property_constructed_year: 築年数
+            user_email: メールアドレス
+            user_name: お名前
+            user_name_kana: ふりがな
+            user_tel: 電話番号
+
