@@ -64,22 +64,35 @@
         <dt class="w-100 text-center"><%= f.label :user_email %></dt>
         <dd class="w-100"><%= f.email_field :user_email, class:"ps-3 border border-secondary" %></dd>
       </div>
-
+<%# 名前漢字 %>
       <div class="d-flex align-items-center mb-4">
-        <dt class="w-100 text-center"><%= f.label :user_name %></dt>
-        <dd class="w-100"><%= f.text_field :user_name, placeholder: "姓と名の間に半角スペースを入れて下さい", class:"ps-3 border border-secondary" %></dd>
+        <dt class="w-100 text-center"><%= f.label :user_family_name %></dt>
+        <dd class="w-100"><%= f.text_field :user_family_name,  class:"ps-3 border border-secondary" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
-        <dt class="w-100 text-center"><%= f.label :user_name_kana %></dt>
-        <dd class="w-100"><%= f.text_field :user_name_kana, placeholder: "姓と名の間に半角スペースを入れて下さい", class:"ps-3 border border-secondary" %></dd>
+        <dt class="w-100 text-center"><%= f.label :user_given_name %></dt>
+        <dd class="w-100"><%= f.text_field :user_given_name,  class:"ps-3 border border-secondary" %></dd>
       </div>
 
+<%# 名前かな %>
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_family_name_kana %></dt>
+        <dd class="w-100"><%= f.text_field :user_family_name_kana,  class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :user_given_name_kana %></dt>
+        <dd class="w-100"><%= f.text_field :user_given_name_kana,  class:"ps-3 border border-secondary" %></dd>
+      </div>
+
+<%# 電話番号 %>
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :user_tel %></dt>
         <dd class="w-100"><%= f.telephone_field :user_tel, class:"ps-3 py-2 w-100 border border-secondary" %></dd>
       </div>
 
+<%# 隠しフィールド %>
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.hidden_field :branch_id, :value => @shop.id %></dt>
         <dd class="w-100"><%= f.hidden_field :url_param, :value => "mituke-ru" %></dd>

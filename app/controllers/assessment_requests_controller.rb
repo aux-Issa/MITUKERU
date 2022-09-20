@@ -15,6 +15,7 @@ class AssessmentRequestsController < ApplicationController
   def create
     @assessment_request = AssessmentRequest.new(assessment_request_params)
     @shop = Shop.find(@assessment_request.branch_id)
+
     if @assessment_request.valid?
 
       response = post_assessment_request(@assessment_request)
@@ -43,8 +44,10 @@ class AssessmentRequestsController < ApplicationController
       :property_room_plan,
       :property_constructed_year,
       :user_email,
-      :user_name,
-      :user_name_kana,
+      :user_family_name,
+      :user_given_name,
+      :user_family_name_kana,
+      :user_given_name_kana,
       :user_tel
     )
   end
@@ -53,7 +56,15 @@ class AssessmentRequestsController < ApplicationController
     uri = 'https://miniul-api.herokuapp.com/affiliate/v2/conversions'
     uri = URI.parse(uri)
     header = { 'Content-Type': 'application/json' }
+
+    assessment_request.concat_name
+    assessment_request.concat_name_kana
     param = assessment_request.attributes
+
+    param.delete('user_family_name')
+    param.delete('user_given_name')
+    param.delete('user_family_name_kana')
+    param.delete('user_given_name_kana')
 
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
