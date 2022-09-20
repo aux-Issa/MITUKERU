@@ -5,8 +5,9 @@ class AssessmentRequest
   include ActiveModel::Attributes # ActiveRecordのカラムのような属性を加えられるようにする
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+ [ぁ-んァ-ヴ一-龠a-zA-Z]+/u
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+/u
   VALID_TELEPHONE_NUMBER = /0\d{9,10}/
+  VALID_NAME_KANA_REGEX = /\A[ぁ-んa-zA-Z]+/
 
   attribute :branch_id, :integer
   attribute :property_city, :integer
