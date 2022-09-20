@@ -3,19 +3,20 @@
 class AssessmentRequest
   include ActiveModel::Model # 通常のモデルのようにvalidationなどを使えるようにする
   include ActiveModel::Attributes # ActiveRecordのカラムのような属性を加えられるようにする
+  # 追加
 
   attribute :branch_id, :integer
   attribute :property_city, :integer
   attribute :property_address, :string
   attribute :property_type, :integer
-  attribute :property_exclusive_area, :float
-  attribute :property_land_area, :float
-  attribute :property_building_area, :float
+  attribute :property_exclusive_area #float
+  attribute :property_land_area #float
+  attribute :property_building_area #float
   attribute :property_building_area_unit, :integer
-  attribute :property_floor_area, :float
+  attribute :property_floor_area #float
   attribute :url_param, :string
   attribute :property_room_plan, :integer
-  attribute :property_constructed_year, :integer
+  attribute :property_constructed_year #integer
   attribute :user_email
   attribute :user_family_name
   attribute :user_given_name
@@ -28,13 +29,13 @@ class AssessmentRequest
   validates :property_city, presence: true
   validates :property_address, presence: true, length: { maximum: 50 }
   validates :property_type, presence: true
-  validates :property_exclusive_area, presence: true
-  validates :property_land_area, presence: true
-  validates :property_building_area, presence: true
+  validates :property_exclusive_area, presence: true, numericality: true
+  validates :property_land_area, presence: true, numericality: true
+  validates :property_building_area, presence: true, numericality: true
   validates :property_building_area_unit, presence: true
-  validates :property_floor_area, presence: true
+  validates :property_floor_area, presence: true, numericality: true
   validates :property_room_plan, presence: true
-  validates :property_constructed_year, presence: true
+  validates :property_constructed_year, presence: true, numericality: { only_integer: true }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :user_email, presence: true
   validates :user_email, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
