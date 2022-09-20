@@ -1,9 +1,14 @@
-<%= @prefecture.name %>
-<% @prefecture.cities.each do |city| %>
-    <li><%= link_to city.name, city_path(city.id) %>
-<%end %>
-
-他の都道府県
-<% Prefecture.all.each do |prefecture| %>
-    <li><%= link_to prefecture.name, prefecture_path(prefecture.id) %>
-<%end %>
+<div class="container">
+  <p class="fw-bold"><%= @prefecture.name %></p>
+  <ul class="d-flex flex-wrap p-0 gap-3">
+    <% @prefecture.cities.each do |city| %>
+      <li><%= link_to city.name, city_path(city.id) %></li>
+    <% end %>
+  </ul>
+  <p class="fw-bold">他の都道府県</p>
+  <ul class="d-flex flex-wrap p-0 gap-3">
+    <% Prefecture.all.each do |prefecture| %>
+      <li><%= link_to prefecture.name, prefecture_path(prefecture.id) %>
+    <% end %>
+  </ul>
+</div>
