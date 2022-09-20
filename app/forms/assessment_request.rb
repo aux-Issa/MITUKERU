@@ -9,14 +9,14 @@ class AssessmentRequest
   attribute :property_city, :integer
   attribute :property_address, :string
   attribute :property_type, :integer
-  attribute :property_exclusive_area #float
-  attribute :property_land_area #float
-  attribute :property_building_area #float
+  attribute :property_exclusive_area # float
+  attribute :property_land_area # float
+  attribute :property_building_area # float
   attribute :property_building_area_unit, :integer
-  attribute :property_floor_area #float
+  attribute :property_floor_area # float
   attribute :url_param, :string
   attribute :property_room_plan, :integer
-  attribute :property_constructed_year #integer
+  attribute :property_constructed_year # integer
   attribute :user_email
   attribute :user_family_name
   attribute :user_given_name
