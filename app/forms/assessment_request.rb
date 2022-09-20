@@ -3,11 +3,14 @@
 class AssessmentRequest
   include ActiveModel::Model # 通常のモデルのようにvalidationなどを使えるようにする
   include ActiveModel::Attributes # ActiveRecordのカラムのような属性を加えられるようにする
-  # 追加
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+ [ぁ-んァ-ヴ一-龠a-zA-Z]+/u
+  VALID_TELEPHONE_NUMBER = /0\d{9,10}/
 
   attribute :branch_id, :integer
   attribute :property_city, :integer
-  attribute :property_address, :string
+  attribute :property_address, :string # 市区町村以降の住所
   attribute :property_type, :integer
   attribute :property_exclusive_area # float
   attribute :property_land_area # float
@@ -36,23 +39,19 @@ class AssessmentRequest
   validates :property_floor_area, presence: true, numericality: true
   validates :property_room_plan, presence: true
   validates :property_constructed_year, presence: true, numericality: { only_integer: true }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :user_email, presence: true
   validates :user_email, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
 
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+/u
   validates :user_family_name, presence: true
   validates :user_family_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
   validates :user_given_name, presence: true
   validates :user_given_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
 
-  VALID_NAME_KANA_REGEX = /\A[ぁ-んa-zA-Z]+/
   validates :user_family_name_kana, presence: true
   validates :user_family_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
   validates :user_given_name_kana, presence: true
   validates :user_given_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
 
-  VALID_TELEPHONE_NUMBER = /0\d{9,10}/
   validates :user_tel, presence: true
   validates :user_tel, format: { with: VALID_TELEPHONE_NUMBER }, allow_blank: true
 
