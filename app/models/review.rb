@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   belongs_to :city
 
   with_options presence: true do
-    validates :remaining_address, length: { minimum: 1, maximum:255 }
+    validates :remaining_address, length: { minimum: 1, maximum: 255 }
     validates :type_of_property
     validates :times_of_sales
     validates :sale_consideration_date
