@@ -17,7 +17,11 @@ class AssessmentRequest
   attribute :property_room_plan, :integer
   attribute :property_constructed_year, :integer
   attribute :user_email
+  attribute :user_family_name
+  attribute :user_given_name
   attribute :user_name
+  attribute :user_family_name_kana
+  attribute :user_given_name_kana
   attribute :user_name_kana
   attribute :user_tel
 
@@ -34,14 +38,30 @@ class AssessmentRequest
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :user_email, presence: true
   validates :user_email, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+ [ぁ-んァ-ヴ一-龠a-zA-Z]+/u
-  validates :user_name, presence: true
-  validates :user_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
-  validates :user_name_kana, presence: true
-  validates :user_name_kana, format: { with: VALID_NAME_REGEX }, length: { maximum: 64 }, allow_blank: true
+
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+/u
+  validates :user_family_name, presence: true
+  validates :user_family_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
+  validates :user_given_name, presence: true
+  validates :user_given_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
+
+  VALID_NAME_KANA_REGEX = /\A[ぁ-んa-zA-Z]+/
+  validates :user_family_name_kana, presence: true
+  validates :user_family_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
+  validates :user_given_name_kana, presence: true
+  validates :user_given_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
+
   VALID_TELEPHONE_NUMBER = /0\d{9,10}/
   validates :user_tel, presence: true
   validates :user_tel, format: { with: VALID_TELEPHONE_NUMBER }, allow_blank: true
+
+  def concat_name
+    self.user_name = "#{user_family_name} #{user_given_name}"
+  end
+
+  def concat_name_kana
+    self.user_name_kana = "#{user_family_name_kana} #{user_given_name_kana}"
+  end
 
   def property_city_choices(shop)
     shop.assessable_areas.map do |assessable_area|
