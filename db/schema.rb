@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_20_045714) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "shop_id"
     t.bigint "city_id"
@@ -33,12 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
     t.bigint "ieul_company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ieul_company_id"], name: "index_companies_on_ieul_company_id", unique: true
   end
 
   create_table "prefectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_prefectures_on_name", unique: true
   end
 
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -92,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_061946) do
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_shops_on_city_id"
     t.index ["company_id"], name: "index_shops_on_company_id"
+    t.index ["ieul_shop_id"], name: "index_shops_on_ieul_shop_id", unique: true
   end
 
   add_foreign_key "assessable_areas", "cities"
