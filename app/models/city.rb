@@ -5,4 +5,6 @@ class City < ApplicationRecord
   has_many :assessable_areas
   has_many :shops, through: :assessable_areas
   has_many :reviews
+
+  validates :name, presence: true
 end
