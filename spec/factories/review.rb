@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :review do
-    association :shop
-    association :city
+    shop {build(:shop)}
+    city {build(:city)}
 
     remaining_address {"品川2丁目"}
     type_of_property {"apartment"}
@@ -21,7 +21,7 @@ FactoryBot.define do
     contract_category {"exclusive_brokerage_service_agreement"}
     title {"港区：担当者の対応が良かったです。"}
     reason_for_sales {"asset_liquidation"}
-    concern_at_sales "港区品川：山路（やまみち）を登りながら、こう考えた。知に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。\r\n住みにくさが高じると、安いところへ引き越したくなる。どこへ越しても住みにくいと悟った時、詩が生まれて、画ができる。",
+    concern_at_sales {"港区品川：山路（やまみち）を登りながら、こう考えた。知に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。\r\n住みにくさが高じると、安いところへ引き越したくなる。どこへ越しても住みにくいと悟った時、詩が生まれて、画ができる。"}
     reason_for_selection {"港区品川：吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事\r\nだけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ"}
     response_satisfaction {5}
     reason_for_response_satisfaction {"港区品川：恥の多い生涯を送って来ました。自分には、人間の生活というものが、見当つかないのです。\r\n自分は東北の田舎に生れましたので、汽車をはじめて見たのは、よほど大きくなってからでした。自分は停車場のブリッジを、上"}

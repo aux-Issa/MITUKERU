@@ -1,10 +1,8 @@
 FactoryBot.define do
   factory :shop do
-    # association :company
-    # id 1
-    # company_id {1}
-    # city_id {660}
-    ieul_shop_id {1}
+    company {build(:company)}
+    city {build(:city)}
+    sequence(:ieul_shop_id) { |n| 100 + n }
     postal_code {"329-1224"}
     name {"品川支店"}
     catch_copy {"不動産の売却はSpeee1不動産にお任せください"}

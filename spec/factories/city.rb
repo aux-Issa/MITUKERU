@@ -1,10 +1,6 @@
 FactoryBot.define do
-  factory :company do
-    association :prefecture
-    association :shop
-    association :review
-    association :assessable_area
+  factory :city do
+    prefecture {build(:prefecture)}
     name {"test市区町村"}
-    # prefecture_company_id {1}
   end
 end

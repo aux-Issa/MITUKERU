@@ -23,7 +23,7 @@ class Review < ApplicationRecord
     validates :reason_for_sales
     validates :concern_at_sales, length: { minimum: 10, maximum: 500 }
     validates :reason_for_selection, length: { minimum: 10, maximum: 500 }
-    validates :response_satisfaction, length: { minimum: 10, maximum: 500 }
+    validates :response_satisfaction
     validates :reason_for_response_satisfaction, length: { minimum: 10, maximum: 500 }
     validates :advice, length: { minimum: 10, maximum: 500 }
   end
