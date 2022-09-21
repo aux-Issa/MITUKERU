@@ -38,8 +38,7 @@ ja:
             property_building_area_unit: 建物面積の単位
             property_floor_area: 延床面積
             property_room_plan: 間取り
-            property_constructed_year: 築年数
-            property_constructed_year_2 : 建てた年
+            property_constructed_year: 建てた年
             user_email: メールアドレス
             user_name: お名前
             user_name_kana: ふりがな
