@@ -5,8 +5,8 @@ class AssessmentRequest
   include ActiveModel::Attributes # ActiveRecordのカラムのような属性を加えられるようにする
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+/u
-  VALID_TELEPHONE_NUMBER = /0\d{9,10}/
+  VALID_TELEPHONE_NUMBER = /\A0\d{9,10}\Z/
+  # VALID_NAME_REGEX = /\A[ぁ-んァ-ヴ一-龠a-zA-Z]+/u
   VALID_NAME_KANA_REGEX = /\A[ぁ-んa-zA-Z]+/
 
   attribute :branch_id, :integer
@@ -33,28 +33,22 @@ class AssessmentRequest
   validates :property_city, presence: true
   validates :property_address, presence: true, length: { maximum: 50 }
   validates :property_type, presence: true
-  validates :property_exclusive_area, presence: true, numericality: true
-  validates :property_land_area, presence: true, numericality: true
-  validates :property_building_area, presence: true, numericality: true
+  validates :property_exclusive_area, presence: true, numericality: { allow_blank: true }
+  validates :property_land_area, presence: true, numericality: { allow_blank: true }
+  validates :property_building_area, presence: true, numericality: { allow_blank: true }
   validates :property_building_area_unit, presence: true
-  validates :property_floor_area, presence: true, numericality: true
+  validates :property_floor_area, presence: true, numericality: { allow_blank: true }
   validates :property_room_plan, presence: true
-  validates :property_constructed_year, presence: true, numericality: { only_integer: true }
-  validates :user_email, presence: true
-  validates :user_email, length: { maximum: 100 }, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
+  validates :property_constructed_year, presence: true, numericality: { only_integer: true, allow_blank: true}
+  validates :user_email, presence: true, length: { maximum: 100, allow_blank: true }, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
 
-  validates :user_family_name, presence: true
-  validates :user_family_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
-  validates :user_given_name, presence: true
-  validates :user_given_name, format: { with: VALID_NAME_REGEX }, length: { maximum: 32 }, allow_blank: true
+  validates :user_family_name, presence: true, length: { maximum: 32, allow_blank: true }
+  validates :user_given_name, presence: true, length: { maximum: 32, allow_blank: true }
 
-  validates :user_family_name_kana, presence: true
-  validates :user_family_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
-  validates :user_given_name_kana, presence: true
-  validates :user_given_name_kana, format: { with: VALID_NAME_KANA_REGEX }, length: { maximum: 64 }, allow_blank: true
+  validates :user_family_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true }, length: { maximum: 64, allow_blank: true }
+  validates :user_given_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true }, length: { maximum: 64, allow_blank: true }
 
-  validates :user_tel, presence: true
-  validates :user_tel, format: { with: VALID_TELEPHONE_NUMBER }, allow_blank: true
+  validates :user_tel, presence: true, format: { with: VALID_TELEPHONE_NUMBER, allow_blank: true }
 
   def concat_name
     self.user_name = "#{user_family_name} #{user_given_name}"
