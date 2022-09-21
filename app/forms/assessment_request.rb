@@ -39,14 +39,17 @@ class AssessmentRequest
   validates :property_building_area_unit, presence: true
   validates :property_floor_area, presence: true, numericality: { allow_blank: true }
   validates :property_room_plan, presence: true
-  validates :property_constructed_year, presence: true, numericality: { only_integer: true, allow_blank: true}
-  validates :user_email, presence: true, length: { maximum: 100, allow_blank: true }, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
+  validates :property_constructed_year, presence: true, numericality: { only_integer: true, allow_blank: true }
+  validates :user_email, presence: true, length: { maximum: 100, allow_blank: true },
+                         format: { with: VALID_EMAIL_REGEX, allow_blank: true }
 
   validates :user_family_name, presence: true, length: { maximum: 32, allow_blank: true }
   validates :user_given_name, presence: true, length: { maximum: 32, allow_blank: true }
 
-  validates :user_family_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true }, length: { maximum: 64, allow_blank: true }
-  validates :user_given_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true }, length: { maximum: 64, allow_blank: true }
+  validates :user_family_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true },
+                                    length: { maximum: 64, allow_blank: true }
+  validates :user_given_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, allow_blank: true },
+                                   length: { maximum: 64, allow_blank: true }
 
   validates :user_tel, presence: true, format: { with: VALID_TELEPHONE_NUMBER, allow_blank: true }
 
