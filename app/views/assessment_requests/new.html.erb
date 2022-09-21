@@ -30,8 +30,8 @@
         <dd class="w-100 d-flex justify-content-center gap-5">
           <% @assessment_request.property_building_area_unit_choices.each do |pb| %>
             <div class="d-flex gap-2">
-              <%= f.label :pb, pb[0] %>
-              <%= f.radio_button :pb, pb[1] %>
+              <%= f.label :property_building_area_unit, pb[0] %>
+              <%= f.radio_button :property_building_area_unit, pb[1] %>
             </div>
           <% end %>
         </dd>
