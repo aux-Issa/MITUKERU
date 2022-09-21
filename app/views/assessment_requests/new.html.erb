@@ -16,8 +16,8 @@
       </div>
 
       <div class="d-flex align-items-center mb-4">
-        <dt class="w-100 text-center"><%= f.label :property_address %></dt>
-        <dd class="w-100"><%= f.text_field :property_address, class:"ps-3 border border-secondary" %></dd>
+        <dt class="w-100 text-center"><%= f.label :property_remaining_address %></dt>
+        <dd class="w-100"><%= f.text_field :property_address, class:"ps-3 border border-secondary", placeholder:"例: 8917番地5 Speeeビル3階405室" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
@@ -26,28 +26,35 @@
       </div>
 
       <div class="d-flex align-items-center mb-4">
+        <dt class="w-100 text-center"><%= f.label :property_building_area_unit %></dt>
+        <dd class="w-100 d-flex justify-content-center gap-5">
+          <% @assessment_request.property_building_area_unit_choices.each do |pb| %>
+            <div class="d-flex gap-2">
+              <%= f.label :pb, pb[0] %>
+              <%= f.radio_button :pb, pb[1] %>
+            </div>
+          <% end %>
+        </dd>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_exclusive_area %></dt>
-        <dd class="w-100"><%= f.text_field :property_exclusive_area, class:"ps-3 border border-secondary" %></dd>
+        <dd class="w-100"><%= f.text_field :property_exclusive_area, class:"ps-3 border border-secondary", placeholder: "おおよそで構いません" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_land_area %></dt>
-        <dd class="w-100"><%= f.text_field :property_land_area, class:"ps-3 border border-secondary" %></dd>
+        <dd class="w-100"><%= f.text_field :property_land_area, class:"ps-3 border border-secondary", placeholder: "おおよそで構いません" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_building_area %></dt>
-        <dd class="w-100"><%= f.text_field :property_building_area, class:"ps-3 border border-secondary" %></dd>
-      </div>
-
-      <div class="d-flex align-items-center mb-4">
-        <dt class="w-100 text-center"><%= f.label :property_building_area_unit %></dt>
-        <dd class="w-100"><%= f.select :property_building_area_unit, @assessment_request.property_building_area_unit_choices, { include_blank: true }, class:"w-100 p-2 border border-secondary shadow-sm" %></dd>
+        <dd class="w-100"><%= f.text_field :property_building_area, class:"ps-3 border border-secondary", placeholder: "おおよそで構いません" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_floor_area %></dt>
-        <dd class="w-100"><%= f.text_field :property_floor_area, class:"ps-3 border border-secondary" %></dd>
+        <dd class="w-100"><%= f.text_field :property_floor_area, class:"ps-3 border border-secondary", placeholder: "おおよそで構いません" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
@@ -56,15 +63,15 @@
       </div>
 
       <div class="d-flex align-items-center mb-4">
-        <dt class="w-100 text-center"><%= f.label :property_constructed_year %></dt>
-        <dd class="w-100"><%= f.text_field :property_constructed_year, class:"ps-3 border border-secondary" %></dd>
+        <dt class="w-100 text-center"><%= f.label :property_constructed_year_2 %></dt>
+        <dd class="w-100"><%= f.text_field :property_constructed_year, class:"ps-3 border border-secondary", placeholder:"おおよそで構いません。例: 2002" %></dd>
       </div>
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :user_email %></dt>
         <dd class="w-100"><%= f.email_field :user_email, class:"ps-3 border border-secondary" %></dd>
       </div>
-<%# 名前漢字 %>
+
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :user_family_name %></dt>
         <dd class="w-100"><%= f.text_field :user_family_name,  class:"ps-3 border border-secondary" %></dd>
@@ -75,7 +82,6 @@
         <dd class="w-100"><%= f.text_field :user_given_name,  class:"ps-3 border border-secondary" %></dd>
       </div>
 
-<%# 名前かな %>
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :user_family_name_kana %></dt>
         <dd class="w-100"><%= f.text_field :user_family_name_kana,  class:"ps-3 border border-secondary" %></dd>
@@ -86,13 +92,11 @@
         <dd class="w-100"><%= f.text_field :user_given_name_kana,  class:"ps-3 border border-secondary" %></dd>
       </div>
 
-<%# 電話番号 %>
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :user_tel %></dt>
-        <dd class="w-100"><%= f.telephone_field :user_tel, class:"ps-3 py-2 w-100 border border-secondary" %></dd>
+        <dd class="w-100"><%= f.telephone_field :user_tel, class:"ps-3 py-2 w-100 border border-secondary", :placeholder => "例: 08042876345" %></dd>
       </div>
 
-<%# 隠しフィールド %>
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.hidden_field :branch_id, :value => @shop.id %></dt>
         <dd class="w-100"><%= f.hidden_field :url_param, :value => "mituke-ru" %></dd>
