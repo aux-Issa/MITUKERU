@@ -31,6 +31,7 @@ ja:
         assessment_request:
             property_city: 市区町村
             property_address: 査定依頼する物件の住所
+            property_remaining_address: 査定依頼する物件の住所(番地以降)
             property_type: 物件種別
             property_exclusive_area: 専有面積
             property_land_area: 土地面積
@@ -39,6 +40,7 @@ ja:
             property_floor_area: 延床面積
             property_room_plan: 間取り
             property_constructed_year: 築年数
+            property_constructed_year_2 : 建てた年
             user_email: メールアドレス
             user_name: お名前
             user_name_kana: ふりがな
