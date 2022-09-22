@@ -27,7 +27,7 @@
 
       <div class="d-flex align-items-center mb-4">
         <dt class="w-100 text-center"><%= f.label :property_building_area_unit %></dt>
-        <dd class="w-100 d-flex justify-content-center gap-5">
+        <dd class="w-100 d-flex gap-5">
           <% @assessment_request.property_building_area_unit_choices.each do |pb| %>
             <div class="d-flex gap-2">
               <%= f.label :property_building_area_unit, pb[0] %>

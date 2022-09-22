@@ -30,12 +30,12 @@ ja:
     attributes:
         assessment_request:
             property_city: 市区町村
-            property_address: 査定依頼する物件の住所(番地以降)
+            property_address: 査定依頼する物件の住所(市区町村以降)
             property_type: 物件種別
             property_exclusive_area: 専有面積
             property_land_area: 土地面積
             property_building_area: 建物面積
-            property_building_area_unit: 建物面積の単位
+            property_building_area_unit: 面積の単位
             property_floor_area: 延床面積
             property_room_plan: 間取り
             property_constructed_year: 建てた年
