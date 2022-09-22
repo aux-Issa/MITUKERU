@@ -23,6 +23,12 @@ open http://localhost:13000
 docker-compose run --rm app bin/rails test
 ```
 
+## rspecの実行
+
+``` bash
+ docker-compose run --rm app bundle exec rspec
+```
+
 ## Rubocop の実行
 
 ``` bash
