@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe '/prfectures', type: :request do
-  describe 'GET /prfectures' do
+RSpec.describe '/prefectures', type: :request do
+  describe 'GET /prefectures' do
     let!(:prefecture) { create(:prefecture) }
 
     context '作成されたidを指定した場合' do

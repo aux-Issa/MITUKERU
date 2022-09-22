@@ -9,11 +9,11 @@ FactoryBot.define do
     remaining_address { '品川2丁目' }
     type_of_property { 'apartment' }
     times_of_sales { 'first_time' }
-    sale_consideration_date { '2018-02-14' }
-    assessment_request_date { '2018-03-14' }
-    sale_date { '2018-03-14' }
-    sold_out_date { '2019-01-14' }
-    delivery_date { '2019-07-31' }
+    sale_consideration_date { Date.new(2017, 0o2, 14) }
+    assessment_request_date { Date.new(2018, 0o3, 14) }
+    sale_date { Date.new(2018, 0o3, 14) }
+    sold_out_date { Date.new(2019, 0o1, 14) }
+    delivery_date { Date.new(2019, 0o7, 31) }
     gender { 'female' }
     age { 46 }
     assessment_price { 22_000_000 }
